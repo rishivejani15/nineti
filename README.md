@@ -1,64 +1,120 @@
-# User Detail & Post Manager App
+# 🧠 User Management Flutter App
 
-## Project Overview
-
-This Flutter application allows users to view a list of users, search by name, and see details for each user, including their posts and todos. Users can create new posts which are cached locally for offline availability. The app uses the **BLoC pattern** for state management to ensure clean architecture and separation of concerns.
-
-Key features include:  
-- User list with search and infinite scroll loading  
-- Detailed user view with posts and todos  
-- Add new posts locally (offline caching)  
-- Pull to refresh functionality  
-- Dark mode toggle (light/dark themes)
+A user management Flutter app using BLoC pattern, REST API integration, pagination, offline caching with Shared Preferences, and dark/light mode toggle.
 
 ---
 
-## Architecture Explanation
+## 🏗️ Architecture
 
-The app is structured using the **BLoC (Business Logic Component)** pattern which separates UI from business logic. This promotes testability and scalability.
+The app follows the **BLoC (Business Logic Component)** pattern:
 
-### Core components:
+### 🔁 BLoC
 
-- **Models**  
-  Define data structures (e.g., `User`, `Post`) to represent app entities.
+- Handles application logic and state transitions
+- Emits states in response to incoming events
 
-- **Repositories**  
-  Abstract data sources (network API, local cache) and provide data to BLoCs.
+### 🧩 Repository
 
-- **BLoCs**  
-  Handle events and emit states:
-  - `UserListBloc`: manages fetching, searching, and paginating the user list.
-  - `UserDetailBloc`: manages fetching user posts and todos and adding new local posts.
+- Abstracts API calls
+- Provides data to BLoC
 
-- **UI (Screens and Widgets)**  
-  Present the app views and respond to BLoC state changes:
-  - `UserListScreen` with search bar and infinite scroll.
-  - `UserDetailScreen` to show posts and todos.
-  - `CreatePostScreen` to add new posts.
+### 🧱 Models
 
-### Offline Caching
+- `User`, `Post`, and `Todo` model classes
 
-Previously, Hive was used for offline caching but has since been removed. You can integrate any preferred local storage (e.g., SQLite, Shared Preferences) for caching posts locally.
+### 🖼️ UI
 
-### Theming
-
-A toggle button in the app bar allows switching between Light and Dark themes globally.
+- Responsive screens that rebuild based on BLoC state
 
 ---
 
-## Setup Instructions
+## ✨ Features
 
-### Prerequisites
+| Feature                  | Description                                         |
+|--------------------------|-----------------------------------------------------|
+| 🔍 Search                | Real-time user name search                          |
+| ⬇️ Pagination            | Infinite scroll loading of user list               |
+| 🔄 Pull-to-refresh       | Refresh user list on swipe down                    |
+| ✍️ Add Post              | Create new post for a user (offline simulated)     |
+| 💾 Offline Storage       | Posts saved using Shared Preferences               |
+| 🌙 Light/Dark Mode       | Switch between sun (light) and moon (dark) themes  |
 
-- Flutter SDK (version 3.x or higher recommended)  
-- Dart SDK  
-- Android Studio / VS Code or other IDE with Flutter support  
-- An emulator or physical device for testing  
+---
 
-### Steps
+## 🔧 Setup Instructions
+
+### 🖥️ Prerequisites
+
+- Flutter SDK (3.0+)
+- Dart SDK
+- An emulator or physical device
+
+### 📦 Installation
 
 1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/yourusername/your-repo-name.git
    cd your-repo-name
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   flutter pub get
+   ```
+
+3. **Run the app:**
+
+   ```bash
+   flutter run
+   ```
+
+---
+
+## 📁 Project Structure
+
+```bash
+lib/
+│
+├── blocs/                # BLoC state management
+│   ├── user_list/        # BLoC for listing users
+│   └── user_detail/      # BLoC for user detail + posts/todos
+│
+├── models/               # Model classes (User, Post, Todo)
+│
+├── repositories/         # API and data fetching logic
+│
+├── screens/              # UI Screens
+│   ├── user_list_screen.dart
+│   └── user_detail_screen.dart
+│
+├── utils/
+│   └── shared_prefs_helper.dart  # SharedPreferences utility for offline posts
+│
+└── main.dart             # App entry point
+```
+
+---
+
+## 🧠 How Offline Posts Work
+
+- Posts created via "Add Post" are saved locally using Shared Preferences.
+- On fetching user details, locally saved posts are loaded and displayed.
+- This enables simulated offline post creation without real API calls.
+
+> Previously, Hive was used for caching but has been replaced with Shared Preferences for simplicity.
+
+---
+
+## 👨‍💻 Author
+
+**Rishi Dhanesh Vejani**
+
+Feel free to connect or contribute via issues or pull requests!
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
