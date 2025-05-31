@@ -95,18 +95,6 @@ lib/
 └── main.dart             # App entry point
 ```
 
----
-
-## 🧠 How Offline Posts Work
-
-- Posts created via "Add Post" are saved locally using Shared Preferences.
-- On fetching user details, locally saved posts are loaded and displayed.
-- This enables simulated offline post creation without real API calls.
-
-> Previously, Hive was used for caching but has been replaced with Shared Preferences for simplicity.
-
----
-
 ## 👨‍💻 Author
 
 **Rishi Vejani**
