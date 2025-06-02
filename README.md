@@ -14,6 +14,13 @@ A user management Flutter app using BLoC pattern, REST API integration, paginati
 
 ---
 
+## 📹 Video Demo
+
+Here is a demo video of the app:
+
+[![Watch the video](demo.mp4)
+
+
 ## 🏗️ Architecture
 
 The app follows the **BLoC (Business Logic Component)** pattern:
