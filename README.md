@@ -10,15 +10,10 @@ A user management Flutter app using BLoC pattern, REST API integration, paginati
 |---|---|---|
 | ![1](1.jpg) | ![2](2.jpg) | ![3](3.jpg) |
 | ![4](4.jpg) | ![5](5.jpg) | ![6](6.jpg) |
-| ![7](7.jpg) | ![8](8.jpg) | |
+| ![7](7.jpg) | ![8](8.jpg) | ![8](demo.mp4) | |
 
 ---
 
-## 📹 Video Demo
-
-Here is a demo video of the app:
-
-[![Watch the video](demo.mp4)
 
 
 ## 🏗️ Architecture
